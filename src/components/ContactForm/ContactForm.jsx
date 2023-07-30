@@ -16,12 +16,6 @@ class ContactForm extends Component {
     e.preventDefault();
     const { name, number } = this.state;
     const { contacts, onSubmit } = this.props;
-
-    if (contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())) {
-      alert(`${name} is already in contacts.`);
-      return;
-    }
-
     onSubmit({ id: uuidv4(), name, number });
     this.setState({ name: '', number: '' });
   };
